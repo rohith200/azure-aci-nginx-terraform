@@ -25,12 +25,10 @@ resource "azurerm_container_group" "nginx" {
     }
   }
 
-  ip_address {
-    type            = "Public"
-    dns_name_label  = "nginx-demo-rohith123"  # must be globally unique
-    ports {
-      port     = 80
-      protocol = "TCP"
-    }
+  ip_address_type = "Public"
+  dns_name_label  = "nginx-demo-rohith123"  # must be unique!
+  ports {
+    port     = 80
+    protocol = "TCP"
   }
 }
